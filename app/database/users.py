@@ -10,7 +10,7 @@ class Users(BaseCrud):  # type: ignore
     _model_class = User
     _collection_name: str = "users"
 
-    async def get_user_by_email(self, email: str) -> Union[User,None]:
+    async def get_user_by_email(self, email: str) -> Union[User, None]:
         """Return user from the DB."""
         user = await self._collection.find_one({"emailId": email}, {"_id": 0})
 

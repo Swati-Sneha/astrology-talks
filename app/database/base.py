@@ -25,4 +25,4 @@ class BaseCrud(Generic[ModelType]):
 
     @property
     def _collection(self) -> AsyncIOMotorCollection:
-        return Database().db[self._collection_name] # type: ignore
+        return Database().db[self._collection_name]  # type: ignore

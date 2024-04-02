@@ -1,10 +1,8 @@
-from pydantic import BaseModel, validator, Field
-from typing import Optional
-from enum import Enum
-from datetime import datetime, date
-from dataclasses import asdict
-from typing import Union
 import bcrypt
+from datetime import datetime
+from enum import Enum
+from typing import Optional
+from pydantic import BaseModel, validator, Field
 
 
 class Gender(str, Enum):
@@ -66,7 +64,7 @@ class User(BaseModel):
             raise ValueError("Invalid date format. Please use DD-MM-YYYY format.")
         return validated_dob
 
-    @validator('password')
+    @validator("password")
     def validate_password(cls, password):
         if len(password) < 8:
             raise ValueError("Password must be at least 8 characters long")
@@ -83,9 +81,14 @@ class Login(BaseModel):
         json_schema_extra = {
             "example": {"emailId": "johnsmith@gmail.com", "password": "Password123"}
         }
-    
+
     @validator("emailId", always=True)
     def validate_email_id(cls, email_id):
         if "@" not in email_id:
             raise ValueError("Invalid email format")
         return email_id.lower()
+
+
+class SuccessfulLoginResponse(BaseModel):
+    data: dict = {}
+    message: str = ""

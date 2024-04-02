@@ -1,7 +1,5 @@
 # Astrologer Talks
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 Astrologer Talks is a python application that integrates with the chatgpt's openai to predict your horoscope based on your name and zodiac sign.
 You should be either logged in as a registered user (pass your generated jwt token from login as auth header) or you should provide your name and zodiac sign in query params to view your horoscope for today
 The application is hosted [here](https://astrology-talks.onrender.com/docs#)

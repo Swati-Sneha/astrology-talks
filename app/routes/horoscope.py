@@ -34,7 +34,7 @@ async def get_horoscope(request: Request, response: Response) -> JSONResponse:
 
     name = payload.get("firstName") or request.query_params.get("name")
     zodiac_sign = request.query_params.get("zodiac_sign")
-    username = payload.get("emailId") or name
+    username = name or payload.get("emailId")
 
     if not name or not zodiac_sign:
         "either the user should be logged in or should provide name and zodiac sign."
